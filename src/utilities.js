@@ -6,6 +6,6 @@ function cleanData(fetchedData) {
       place.designation === "National and State Parks" ||
       (place.designation === "" && place.name === "National Park of American Samoa")
   })
-}
+};
 
-export { cleanData }
+export { cleanData };
