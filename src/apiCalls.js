@@ -5,10 +5,8 @@ function getData() {
         throw Error('Server error')
       };
 
-      // TO DO: add cleaning function to returned json
-      // const filteredParks = this.state.fetch.filter(place => place.designation === "National Park")
       return response.json();
     })
-}
+};
 
-export { getData }
+export { getData };

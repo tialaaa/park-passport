@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { getData } from '../apiCalls';
+import { cleanData } from '../utilities';
 
 class App extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class App extends Component {
   componentDidMount = () => {
     getData()
       .then(res => {
-        this.setState({ parks: res.data })
+        this.setState({ parks: cleanData(res) })
         console.log(this.state)
       })
       .catch(err => this.setState({ error: err }))
