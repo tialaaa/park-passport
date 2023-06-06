@@ -21,7 +21,7 @@ class App extends Component {
         this.setState({ parks: cleanData(res) })
         console.log(this.state)
       })
-      .catch(err => this.setState({ error: err }))
+      .catch(err => this.setState({ error: err.message }))
   }
 
   render() {
