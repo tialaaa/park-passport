@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import { getData } from '../../apiCalls';
 import { cleanData } from '../../utilities';
 import { ParkContainer } from '../Park-Container/Park-Container';
+import { Details } from '../Details/Details';
 
 class App extends Component {
   constructor() {
@@ -34,10 +35,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">Park Passport</header>
-        <ParkContainer parksArray={this.state.parks}></ParkContainer>
-      </div>
+      <main>
+        {/* <Header /> */}
+        <Switch>
+          <Route exact path='/' render={ () => 
+            <ParkContainer parksArray={this.state.parks}/> }
+          />
+          <Route exact path='/park-details/:parkCode' render={ ({match}) => {
+            const selectedPark = this.state.parks.find(park => park.parkCode === match.params.parkCode);
+            return <Details park={selectedPark}/> }}
+          />
+        </Switch>
+      </main>
     );
   };
 }
