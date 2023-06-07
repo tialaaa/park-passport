@@ -1,0 +1,19 @@
+.details-info {
+  padding: 2rem;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.banner-name {
+  margin: 0;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+  z-index: 1;
+  color: white;
+  background-color: rgba(0, 0, 0, .5);
+}
