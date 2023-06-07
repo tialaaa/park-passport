@@ -21,12 +21,19 @@ class App extends Component {
         console.log(this.state)
       })
       .catch(err => this.setState({ error: err.message }))
-  }
+  };
+
+  toggleVisited = (event) => {
+    if (this.state.userVisited.includes(event.target.fullName)) {
+      this.state.userVisited.splice(event.target.fullName)
+    } else {
+      this.state.userVisited.push(event.target.fullName)
+    };
+  };
 
   render() {
     return (
       <div className="App">
-        {/* {console.log(process.env.REACT_APP_API_KEY)} */}
         <header className="App-header">Park Passport</header>
       </div>
     );
