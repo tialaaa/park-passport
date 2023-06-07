@@ -1,6 +1,21 @@
 import './Park-Container.css';
-import React, { Component } from 'react';
+import React from 'react';
+import { Park } from '../Park/Park';
 
-export const ParkContainer = () => {
-  
-}
+export const ParkContainer = ({ parksArray }) => {
+  const parkCards = parksArray.map(park => {
+    return (
+      <Park
+        fullName={park.fullName}
+        key={park.parkCode}
+        images={park.images}
+      />
+    )
+  });
+
+  return (
+    <div className='parks-container'>
+      {parkCards}
+    </div>
+  );
+};
