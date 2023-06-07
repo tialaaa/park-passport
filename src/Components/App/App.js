@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { getData } from '../../apiCalls';
 import { cleanData } from '../../utilities';
+import { ParkContainer } from '../Park-Container/Park-Container';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">Park Passport</header>
+        <ParkContainer parksArray={this.state.parks}></ParkContainer>
       </div>
     );
   };
