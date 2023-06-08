@@ -9,13 +9,14 @@ export const ParkContainer = ({ parksArray }) => {
         fullName={park.fullName}
         key={park.parkCode}
         images={park.images}
+        parkCode={park.parkCode}
       />
     )
   });
 
   return (
-    <div className='parks-container'>
+    <section className='parks-container'>
       {parkCards}
-    </div>
+    </section>
   );
 };
