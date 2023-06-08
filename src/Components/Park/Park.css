@@ -9,3 +9,9 @@
   height: 90%;
   object-fit: cover;
 }
+
+.visited-badge {
+  width: 3rem;
+  height: 3rem;
+  background-color: green;
+}

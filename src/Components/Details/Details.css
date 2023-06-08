@@ -1,5 +1,6 @@
 .details-info {
   padding: 2rem;
+  padding-top: 0;
 }
 
 .banner-image {
@@ -7,12 +8,13 @@
 }
 
 .banner-name {
+  display: inline-block;
   margin: 0;
   padding: 0.5rem 1.5rem;
   border-radius: 2rem;
-  position: absolute;
+  position: relative;
   left: 2rem;
-  top: 1rem;
+  bottom: 6rem;
   z-index: 1;
   color: white;
   background-color: rgba(0, 0, 0, .5);
