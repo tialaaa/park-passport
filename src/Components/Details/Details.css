@@ -17,3 +17,9 @@
   color: white;
   background-color: rgba(0, 0, 0, .5);
 }
+
+.details-map {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}

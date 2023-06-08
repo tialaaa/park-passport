@@ -1,6 +1,7 @@
 import './Details.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Map } from '../Map/Map';
 
 export const Details = ({ park }) => {
   if (!park) {
@@ -50,6 +51,9 @@ export const Details = ({ park }) => {
         <a href={url} className='link-to-nps'>Additional Details from NPS</a>
         <p>Popular Activities: {activitiesList}</p>
         <NavLink to='/'>Return to your passport</NavLink>
+        <div className='details-map'>
+          <Map parkName={fullName} />
+        </div>
       </div>
     </section>
   );
