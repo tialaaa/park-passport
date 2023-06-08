@@ -3,3 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.homepage-message {
+  text-align: center;
+}
