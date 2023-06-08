@@ -28,11 +28,13 @@ class App extends Component {
       .catch(err => this.setState({ error: err.message }))
   };
 
-  toggleVisited = (event) => {
-    if (this.state.userVisited.includes(event.target.fullName)) {
-      this.state.userVisited.splice(event.target.fullName)
+  toggleVisited = (selectedParkCode) => {
+    if (!this.state.userVisited.includes(selectedParkCode)) {
+      this.setState({ userVisited: [...this.state.userVisited, selectedParkCode]});
     } else {
-      this.state.userVisited.push(event.target.fullName)
+      const updatedList = this.state.userVisited.filter(parkCode => parkCode !== selectedParkCode);
+
+      this.setState({ userVisited: updatedList})
     };
   };
 
@@ -43,7 +45,7 @@ class App extends Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={ () => 
-            <ParkContainer parksArray={this.state.parks} loadingState={this.state.loading}/> }
+            <ParkContainer parksArray={this.state.parks} loadingState={this.state.loading} toggleVisited={this.toggleVisited}/> }
           />
           <Route exact path='/park-details/:parkCode' render={ ({match}) => {
             const selectedPark = this.state.parks.find(park => park.parkCode === match.params.parkCode);

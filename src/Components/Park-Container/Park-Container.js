@@ -2,7 +2,7 @@ import './Park-Container.css';
 import React from 'react';
 import { Park } from '../Park/Park';
 
-export const ParkContainer = ({ parksArray, loadingState }) => {
+export const ParkContainer = ({ parksArray, loadingState, toggleVisited }) => {
   let displayedMessage;
 
   const parkCards = parksArray.map(park => {
@@ -12,6 +12,7 @@ export const ParkContainer = ({ parksArray, loadingState }) => {
         key={park.parkCode}
         images={park.images}
         parkCode={park.parkCode}
+        toggleVisited={toggleVisited}
       />
     )
   });
