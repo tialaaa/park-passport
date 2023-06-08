@@ -66,7 +66,7 @@ class App extends Component {
           />
           <Route exact path='/park-details/:parkCode' render={({match}) => {
             const selectedPark = this.state.parks.find(park => park.parkCode === match.params.parkCode);
-            return <Details park={selectedPark}/> }}
+            return <Details park={selectedPark} percentVisited={this.calcPercentVisited}/> }}
           />
           <Route path='/*' render={() => <Errors error={this.state.error}/> }/>
         </Switch>
