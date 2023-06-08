@@ -1,5 +1,6 @@
 import './Errors.css';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Errors = ({ error }) => {
   let displayedError;
@@ -11,4 +12,8 @@ export const Errors = ({ error }) => {
   };
 
   return <p className="error-message">{displayedError}</p>;
+};
+
+Errors.propTypes = {
+  error: PropTypes.any.isRequired
 };

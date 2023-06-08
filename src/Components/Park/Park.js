@@ -1,6 +1,7 @@
 import './Park.css';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
   return (
@@ -16,4 +17,11 @@ export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
       </NavLink>
     </div>
   );
+};
+
+Park.propTypes = {
+  fullName: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
+  parkCode: PropTypes.string.isRequired,
+  toggleVisited: PropTypes.func.isRequired
 };

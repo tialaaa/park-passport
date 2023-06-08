@@ -1,5 +1,6 @@
 import './Message.css';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const Message = ({ loadingState, percentVisited }) => {
   let displayedMessage;
@@ -26,4 +27,9 @@ export const Message = ({ loadingState, percentVisited }) => {
       {displayedMessage}
     </div>
   );
+};
+
+Message.propTypes = {
+  loadingState: PropTypes.bool.isRequired,
+  percentVisited: PropTypes.func.isRequired
 };

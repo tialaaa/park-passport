@@ -1,17 +1,18 @@
 import './Details.css';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Map } from '../Map/Map';
+import { Message } from '../Message/Message';
 
-export const Details = ({ park }) => {
+export const Details = ({ park, percentVisited }) => {
   if (!park) {
-    // return (<Errors errorMessage={error} />)
-    return console.log('error loading details')
+    return <Message loadingState={true} percentVisited={percentVisited}/>
   };
 
   let addressToDisplay;
-  const { fullName, states, addresses, description, url, activities, directionsUrl, images } = park;
-  console.log(images)
+  const { fullName, states, addresses, description, url, activities, images } = park;
+  
   const activitiesList = activities.map(activity => activity.name).sort().join(", ");
   // TO DO: Update how activitiesList is displayed?
   // TO DO: Write cleaning function to convert 'states' into full name state names
@@ -23,14 +24,14 @@ export const Details = ({ park }) => {
   if (!line2) {
     addressToDisplay =
       <p>
-        {line1}<br></br>
+        {line1}<br/>
         {city}, {stateCode} {postalCode}
       </p>
   } else {
     addressToDisplay =
       <p>
-        {line1}<br></br>
-        {line2}<br></br>
+        {line1}<br/>
+        {line2}<br/>
         {city}, {stateCode} {postalCode}
       </p>
   };
@@ -38,11 +39,11 @@ export const Details = ({ park }) => {
   return (
     <section className='details-page'>
       <div className='details-banner'>
-        <img className='banner-image' src={images[1].url} alt={images[1].altText}></img>
+        <img className='banner-image' src={images[0].url} alt={images[0].altText}></img>
         <h2 className='banner-name'>{fullName}</h2>
-        {/* <div>Checkbox</div> */}
-        {/* <p className='banner-title'>{images[1].title}</p> */}
-        {/* <p className='banner-caption'>{images[1].caption}</p> */}
+        {/* <div>Badge</div> */}
+        {/* <p className='banner-title'>{images[0].title}</p> */}
+        {/* <p className='banner-caption'>{images[0].caption}</p> */}
       </div>
       <div className='details-info'>
         <p>States: {states}</p>
@@ -57,4 +58,14 @@ export const Details = ({ park }) => {
       </div>
     </section>
   );
+};
+
+Details.propTypes = {
+  park: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+      PropTypes.object,
+    ])),
+  percentVisited: PropTypes.func.isRequired
 };
