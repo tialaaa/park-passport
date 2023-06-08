@@ -7,6 +7,7 @@ import { ParkContainer } from '../Park-Container/Park-Container';
 import { Details } from '../Details/Details';
 import { Header } from '../Header/Header';
 import { Message } from '../Message/Message';
+import { Errors } from '../Errors/Errors';
 import ScrollToTop from '../Scroll-To-Top/ScrollToTop';
 
 class App extends Component {
@@ -47,6 +48,13 @@ class App extends Component {
   };
 
   render() {
+    if (this.state.error) {
+      return <>
+        <Header/>
+        <Errors error={this.state.error}/>
+      </>
+    };
+
     return (
       <main>
         <ScrollToTop />
@@ -56,10 +64,11 @@ class App extends Component {
             <Message loadingState={this.state.loading} percentVisited={this.calcPercentVisited} />
             <ParkContainer parksArray={this.state.parks} toggleVisited={this.toggleVisited}/> </>}
           />
-          <Route exact path='/park-details/:parkCode' render={ ({match}) => {
+          <Route exact path='/park-details/:parkCode' render={({match}) => {
             const selectedPark = this.state.parks.find(park => park.parkCode === match.params.parkCode);
             return <Details park={selectedPark}/> }}
           />
+          <Route path='/*' render={() => <Errors error={this.state.error}/> }/>
         </Switch>
       </main>
     );
