@@ -2,9 +2,7 @@ import './Park-Container.css';
 import React from 'react';
 import { Park } from '../Park/Park';
 
-export const ParkContainer = ({ parksArray, loadingState, toggleVisited }) => {
-  let displayedMessage;
-
+export const ParkContainer = ({ parksArray, toggleVisited }) => {
   const parkCards = parksArray.map(park => {
     return (
       <Park
@@ -17,22 +15,9 @@ export const ParkContainer = ({ parksArray, loadingState, toggleVisited }) => {
     )
   });
   
-  if (loadingState) {
-    displayedMessage = <p>Park information loading...</p>
-  } else {
-    displayedMessage = <p>How many US National Parks have you visited?<br/><br/>
-    Browse the list below. Check off the parks you have visited.<br/>
-    Find resources to help plan your future adventures.</p>
-  }
-
   return (
-    <>
-      <div className='homepage-message'>
-        {displayedMessage}
-      </div>
-      <section className='parks-container'>
-        {parkCards}
-      </section>
-    </>
+    <section className='parks-container'>
+      {parkCards}
+    </section>
   );
 };
