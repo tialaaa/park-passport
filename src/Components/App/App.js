@@ -29,6 +29,9 @@ class App extends Component {
   };
 
   toggleVisited = (selectedParkCode) => {
+    let element = document.getElementById(selectedParkCode);
+    element.classList.toggle("checked");
+
     if (!this.state.userVisited.includes(selectedParkCode)) {
       this.setState({ userVisited: [...this.state.userVisited, selectedParkCode]});
     } else {

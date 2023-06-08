@@ -7,7 +7,7 @@ export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
     <div>
       <div className="card">
         <img className="card-image" src={images[0].url} alt={images[0].altText} />
-        <button className="visited-badge" value={parkCode}
+        <button className="visited-badge" value={parkCode} id={parkCode}
           onClick={(event) => toggleVisited(event.target.value)}>
         </button>
       </div>
