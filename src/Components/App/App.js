@@ -6,6 +6,7 @@ import { cleanData } from '../../utilities';
 import { ParkContainer } from '../Park-Container/Park-Container';
 import { Details } from '../Details/Details';
 import { Header } from '../Header/Header';
+import { Message } from '../Message/Message';
 import ScrollToTop from '../Scroll-To-Top/ScrollToTop';
 
 class App extends Component {
@@ -41,14 +42,19 @@ class App extends Component {
     };
   };
 
+  calcPercentVisited = () => {
+    return this.state.userVisited.length / this.state.parks.length;
+  };
+
   render() {
     return (
       <main>
         <ScrollToTop />
         <Header/>
         <Switch>
-          <Route exact path='/' render={ () => 
-            <ParkContainer parksArray={this.state.parks} loadingState={this.state.loading} toggleVisited={this.toggleVisited}/> }
+          <Route exact path='/' render={ () => <>
+            <Message loadingState={this.state.loading} percentVisited={this.calcPercentVisited} />
+            <ParkContainer parksArray={this.state.parks} toggleVisited={this.toggleVisited}/> </>}
           />
           <Route exact path='/park-details/:parkCode' render={ ({match}) => {
             const selectedPark = this.state.parks.find(park => park.parkCode === match.params.parkCode);
