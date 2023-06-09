@@ -31,9 +31,6 @@ class App extends Component {
   };
 
   toggleVisited = (selectedParkCode) => {
-    let element = document.getElementById(selectedParkCode);
-    element.classList.toggle("checked");
-
     if (!this.state.userVisited.includes(selectedParkCode)) {
       this.setState({ userVisited: [...this.state.userVisited, selectedParkCode]});
     } else {
@@ -58,7 +55,7 @@ class App extends Component {
     return (
       <main>
         <ScrollToTop />
-        <Header/>
+        <Header percentVisited={this.calcPercentVisited} />
         <Switch>
           <Route exact path='/' render={ () => <>
             <Message loadingState={this.state.loading} percentVisited={this.calcPercentVisited} />

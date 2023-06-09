@@ -4,17 +4,20 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
+  let toggleGroup = (e) => {
+    e.target.previousSibling.classList.toggle("greyscale");
+    e.target.classList.toggle("marked");
+    toggleVisited(e.target.id);
+  };
+
   return (
-    <div>
-      <div className="card">
-        <img className="card-image" src={images[0].url} alt={images[0].altText} />
-        <button className="visited-badge" value={parkCode} id={parkCode}
-          onClick={(event) => toggleVisited(event.target.value)}>
-        </button>
-      </div>
-      <NavLink to={`/park-details/${parkCode}`}>
-        <h3>{fullName}</h3>
-      </NavLink>
+    <div className="card">
+      <NavLink to={`/park-details/${parkCode}`} className="link-to-details">{fullName}</NavLink>
+      <img className={`card-image ${parkCode}`} src={images[0].url} alt={images[0].altText} />
+      <img className="visited-badge" id={parkCode} src='/PP-badge.png'
+        alt='badge declaring Visited, with the site logo and name'
+        onClick={ (event) => toggleGroup(event) }
+      />
     </div>
   );
 };
