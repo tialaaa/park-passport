@@ -8,12 +8,14 @@ export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
     <div>
       <div className="card">
         <img className="card-image" src={images[0].url} alt={images[0].altText} />
-        <button className="visited-badge" value={parkCode} id={parkCode}
-          onClick={(event) => toggleVisited(event.target.value)}>
-        </button>
+        <img className="visited-badge" id={parkCode}
+            src='/PP-badge.png'
+            alt='badge declaring Visited, with the site logo and name'
+            onClick={(event) => toggleVisited(event.target.id)}
+        />
       </div>
-      <NavLink to={`/park-details/${parkCode}`}>
-        <h3>{fullName}</h3>
+      <NavLink to={`/park-details/${parkCode}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+        <h2>{fullName}</h2>
       </NavLink>
     </div>
   );
