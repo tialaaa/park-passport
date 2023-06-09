@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     if (this.state.error) {
       return <>
-        <Header/>
+        <Header percentVisited={this.calcPercentVisited} />
         <Errors error={this.state.error}/>
       </>
     };
