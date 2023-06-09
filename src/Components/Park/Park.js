@@ -12,9 +12,7 @@ export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
 
   return (
     <div className="card">
-      <NavLink to={`/park-details/${parkCode}`} style={{ color: 'inherit', textDecoration: 'inherit'}} className="link-to-details">
-        <h3>{fullName}</h3>
-      </NavLink>
+      <NavLink to={`/park-details/${parkCode}`} className="link-to-details">{fullName}</NavLink>
       <img className={`card-image ${parkCode}`} src={images[0].url} alt={images[0].altText} />
       <img className="visited-badge" id={parkCode} src='/PP-badge.png'
         alt='badge declaring Visited, with the site logo and name'

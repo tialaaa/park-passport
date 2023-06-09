@@ -1,9 +1,10 @@
-h3 {
+.link-to-details {
   display: inline-block;
   margin-bottom: 0.75rem;
+  padding: 0 1rem;
   color: #214d30;
   font-family: 'Archivo Black', sans-serif;
-  font-size: x-large;
+  font-size: larger;
   text-align: center;
 }
 
@@ -28,7 +29,7 @@ h3 {
 .visited-badge {
   position: absolute;
   width: 6rem;
-  top: 5.5rem;
+  top: 4rem;
   right: 2rem;
   filter: grayscale(100%);
   opacity: 75%;
@@ -45,8 +46,4 @@ h3 {
 
 .greyscale {
   filter: grayscale(100%);
-}
-
-.link-to-details {
-  padding: 0 1rem;
 }
