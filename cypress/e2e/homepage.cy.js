@@ -1,10 +1,25 @@
 describe('Homepage user flows', () => {
+  // let npsApiKey;
+
   beforeEach(() => {
-    cy.intercept('GET', `https://developer.nps.gov/api/v1/parks?limit=15&api_key=${process.env.REACT_APP_API_KEY}`, {
+    // npsApiKey = Cypress.env('nps_api_key');
+    // console.log(npsApiKey)
+    // cy.intercept("GET", `https://developer.nps.gov/api/v1/parks?limit=25&api_key=${npsApiKey}`, {
+
+    // cy.intercept("GET", `https://developer.nps.gov/api/v1/parks?limit=25&api_key=GgsaQEMV2S5mPzKNwSbKIay6hBjcNvFC0Be2Gvi0`, {
+    //   statusCode: 200,
+    //   fixture: 'parks'
+    // })
+    // cy.visit('http://localhost:3000/')
+
+    cy.intercept('GET', 'https://developer.nps.gov/api/v1/parks?limit=25&api_key=GgsaQEMV2S5mPzKNwSbKIay6hBjcNvFC0Be2Gvi0', {
       statusCode: 200,
-      fixture: 'parks.json'
+      fixture: 'parks'
     })
+    // }).as('getData')
+    // cy.wait('@getData')
     cy.visit('http://localhost:3000/')
+
   })
 
   it('Should display a header with the site logo and name', () => {
