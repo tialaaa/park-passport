@@ -2,7 +2,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { getData } from '../../apiCalls';
-import { cleanData } from '../../utilities';
+import { filterData } from '../../utilities';
 import { ParkContainer } from '../Park-Container/Park-Container';
 import { Details } from '../Details/Details';
 import { Header } from '../Header/Header';
@@ -24,7 +24,7 @@ class App extends Component {
   componentDidMount = () => {
     getData()
       .then(res => {
-        this.setState({ parks: cleanData(res), loading: false })
+        this.setState({ parks: filterData(res), loading: false })
         console.log(this.state)
       })
       .catch(err => this.setState({ error: err.message }))
