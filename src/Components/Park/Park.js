@@ -4,19 +4,30 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export const Park = ({ fullName, images, parkCode, toggleVisited }) => {
+  let toggleGroup = (event) => {
+    event.target.previousSibling.classList.toggle("greyscale");
+    event.target.parentElement.classList.toggle("greyscale");
+    event.target.classList.toggle("checked");
+    toggleVisited(event.target.id);
+  };
+
   return (
-    <div>
-      <div className="card">
-        <img className="card-image" src={images[0].url} alt={images[0].altText} />
-        <img className="visited-badge" id={parkCode}
-            src='/PP-badge.png'
-            alt='badge declaring Visited, with the site logo and name'
-            onClick={(event) => toggleVisited(event.target.id)}
-        />
-      </div>
-      <NavLink to={`/park-details/${parkCode}`} style={{ color: 'inherit', textDecoration: 'inherit'}}>
-        <h2>{fullName}</h2>
+    <div className="card">
+      <NavLink to={`/park-details/${parkCode}`} style={{ color: 'inherit', textDecoration: 'inherit'}} className="link-to-details">
+        <h3>{fullName}</h3>
       </NavLink>
+      <img className={`card-image ${parkCode}`} src={images[0].url} alt={images[0].altText} />
+      <img className="visited-badge" id={parkCode}
+        src='/PP-badge.png'
+        alt='badge declaring Visited, with the site logo and name'
+        onClick={(event) => {
+          event.target.previousSibling.classList.toggle("greyscale");
+          event.target.parentElement.classList.toggle("greyscale");
+          event.target.classList.toggle("checked");
+          toggleVisited(event.target.id);
+          // return toggleGroup(event);
+        }}
+      />
     </div>
   );
 };
