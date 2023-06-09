@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <main>
         <ScrollToTop />
-        <Header/>
+        <Header percentVisited={this.calcPercentVisited} />
         <Switch>
           <Route exact path='/' render={ () => <>
             <Message loadingState={this.state.loading} percentVisited={this.calcPercentVisited} />

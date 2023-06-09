@@ -1,5 +1,21 @@
+.message-loading {
+  margin-top: 10rem;
+  color: #4f8060;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: x-large;
+}
+
+.homepage-message {
+  margin-top: 2rem;
+  overflow: auto;
+}
+
 .message-percent {
-  font-size: larger;
-  font-weight: bold;
-  color: green;
+  padding: 1rem 0;
+  color: #4f8060;
+  font-family: 'Archivo Black', sans-serif;
+}
+
+.message-helper {
+  font-size: large;
 }
