@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Park Passport
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Abstract
+Are you a goal-oriented outdoor adventurer? The Park Passport app helps people like you track how many US National Parks they have visited. Users can browse the parks list in a pleasing UI, collect badges for parks already visited, and see a live-updating display of their "Percent Visited" statistic. Using the National Park Service API, it provides additional information for each park to inspire and assist with planning future trips.
 
-## Available Scripts
+### Deployed Page
+[Park Passport](https://the-park-passport.vercel.app/)
 
-In the project directory, you can run:
+### Preview
+![Park Passport preview](https://github.com/tialaaa/park-passport/assets/121128718/1b260ee4-6fdd-4044-9606-76d0d2a2fb3b)
 
-### `npm start`
+### Context
+Completed over 5 days, this was my final project of module 3 at the Turing School. The project was built to match the specifications of this project rubric - [Showcase Project](https://frontend.turing.edu/projects/module-3/showcase.html). I had four weeks of experience with React when starting this project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Contributors
+Solo project by Tiala Young: [GitHub](https://github.com/tialaaa), [LinkedIn](https://www.linkedin.com/in/tialayoung/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Technologies Used
+- React
+- Router
+- Fetch API
+- CSS & JSX
+- Cypress for end to end testing
+- Vercel for deployment
+- Git, GitHub, Github Projects
 
-### `npm test`
+### Learning Goals
+- Ideate and execute an MVP application to serve a niche audience of users.
+- Showcase new technologies learned over the past four weeks - namely React, React Router, and Cypress.
+- Utilize asynchronous JavaScript to send and receive data with an API.
+- Perform thorough end-to-end testing.
+- Implement a user interface that is easy to use, responsive, and follows best practices for accessibility.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Wins & Challenges
+Wins:
+- Showcasing my understanding of React, including Routes for a multi-page site and PropTypes for typechecking.
+- Utilizing environment variables and `.gitignore` to store protected API Keys for both client-side and testing usage.
+- Implementing a responsive, user-friendly web app with 100% Lighthouse and WAVE scores for accessibility.
 
-### `npm run build`
+Challenges:
+- The primary challenge was time. Even though my proposed minimum viable product was narrow in scope, there were many things for one person to consider and implement within a short period of time. 
+- Correctly intercepting network requests to a URL containing multiple params and an API key added new complexity to my Cypress testing workflow.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Future Features
+Given additional time and resources, these features could be implemented to expand this project:
+  - Use local storage to persist user’s saved list on every visit
+  - Allow filtering the homepage list by the user’s visited versus non-visited parks
+  - Add image gallery to the Details page, to utilize the full array of images provided by NPS API
+  - Allow searching by park activities (included in NPS API data) to aid in planning future trips
+  - Add a journal feature for users to store memories of their park experiences
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation Instructions
+- Using the terminal, clone the [Front End Repo](https://github.com/tialaaa/park-passport) to your local machine.
+- `cd` into park-passport directory.
+- Run `npm i` to install all dependencies.
+- Run `npm start` to launch the project locally.
+- To open Cypress testing, run `npm run cypress`
