@@ -1,9 +1,8 @@
 describe('template spec', () => {
-  let mapsApiKey;
+  let mapsApiKey = Cypress.env('google_api_key');
 
   beforeEach(() => {
     let npsApiKey = Cypress.env('nps_api_key');
-    mapsApiKey = Cypress.env('google_api_key');
 
     cy.intercept({
       pathname: '/api/v1/parks',
@@ -14,8 +13,9 @@ describe('template spec', () => {
     }, {
       statusCode: 200,
       fixture: 'parks'
-    })
+    }).as('getData')
     cy.visit('http://localhost:3000/')
+    cy.wait('@getData')
   });
 
   it('Can click a park name to navigate to a details page about that park', () => {
