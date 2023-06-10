@@ -7,9 +7,9 @@ export const Map = ({ parkName }) => {
   return (
     <iframe
       title={`Google Maps View of ${parkName}`}
-      width="600"
-      height="450"
-      style={{border:0}}
+      width="400"
+      height="350"
+      style={{border:0, borderRadius:'0.5rem', boxShadow: 'rgba(99, 99, 99, 0.3) 0px 2px 8px 0px'}}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"
       src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_GOOGLE_API_KEY}&q=${parkName}&maptype=satellite`}>
