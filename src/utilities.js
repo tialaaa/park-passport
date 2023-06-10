@@ -1,4 +1,4 @@
-function cleanData(fetchedData) {
+function filterData(fetchedData) {
   return fetchedData.data.filter(place => {
     return place.designation === "National Park" ||
       place.designation === "National Parks" ||
@@ -8,4 +8,4 @@ function cleanData(fetchedData) {
   })
 };
 
-export { cleanData };
+export { filterData };
