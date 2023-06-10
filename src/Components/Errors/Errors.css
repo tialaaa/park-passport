@@ -1,0 +1,8 @@
+.error-message {
+  margin-top: 10rem;
+  padding: 0 2rem;
+  color: #4f8060;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: x-large;
+  text-align: center;
+}
