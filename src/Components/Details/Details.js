@@ -1,9 +1,10 @@
 import './Details.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { Map } from '../Map/Map';
 import { Message } from '../Message/Message';
+import { convertStateCode } from '../../utilities';
 
 export const Details = ({ park, percentVisited }) => {
   if (!park) {
@@ -13,9 +14,9 @@ export const Details = ({ park, percentVisited }) => {
   let addressToDisplay;
   const { fullName, states, addresses, description, url, activities, images } = park;
   
+  const stateNames = states.split(',').map(code => convertStateCode(code)).join(", ");
+
   const activitiesList = activities.map(activity => activity.name).sort().join(", ");
-  // TO DO: Update how activitiesList is displayed?
-  // TO DO: Write cleaning function to convert 'states' into full name state names
 
   const physicalAddress = addresses.find(address => address.type === "Physical");
 
@@ -45,14 +46,21 @@ export const Details = ({ park, percentVisited }) => {
         {/* <p className='banner-title'>{images[0].title}</p> */}
         {/* <p className='banner-caption'>{images[0].caption}</p> */}
       </div>
+      <p className='description'>{description}</p>
       <div className='details-info'>
-        <p>States: {states}</p>
-        <div>Primary Address: {addressToDisplay}</div>
-        <p>{description}</p>
-        <a href={url} className='link-to-nps'>Additional Details from NPS</a>
-        <p>Popular Activities: {activitiesList}</p>
-        <NavLink to='/'>Return to your passport</NavLink>
+        
+        <div>
+          <p>Located in: {stateNames}</p>
+          <div className='primary'>Primary Address:</div>
+          <div className='address'>{addressToDisplay}</div>
+          {/* <a href={url} className='link-to-nps'>Additional Details from NPS</a> */}
+          <p className='popular'>Popular Activities:</p>
+          <p className='activities'>{activitiesList}</p>
+          <a href={url} className='link-to-nps'>Additional Details from NPS</a>
+        </div>
+        {/* <NavLink to='/'>Return to your passport</NavLink> */}
         <div className='details-map'>
+          
           <Map parkName={fullName} />
         </div>
       </div>
