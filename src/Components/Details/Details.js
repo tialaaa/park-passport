@@ -47,12 +47,16 @@ export const Details = ({ park, percentVisited }) => {
         <hr/>
         <div className='details-container'>
           <div className='details-info'>
-            <p>Located in: {stateNames}</p>
-            <div className='primary'>Primary Address:</div>
+            <p>Located in:</p>
+            <p className='states'>{stateNames}</p>
+            <div>Primary Address:</div>
             <div className='address'>{addressToDisplay}</div>
-            <p className='popular'>Popular Activities:</p>
+            <p>Popular Activities:</p>
             <p className='activities'>{activitiesList}</p>
-            <a href={url} className='link-to-nps'>Additional Details from NPS</a>
+            <div className='nps-container'>
+              <img className='nps-logo' src='/NPS-logo.png' alt='National Park Service logo'/>
+              <a href={url} className='link-to-nps'>More details from the National Park Service</a>
+            </div>
           </div>
           <div className='details-map'>
             <Map parkName={fullName} />
