@@ -7,8 +7,8 @@ export const Map = ({ parkName }) => {
   return (
     <iframe
       title={`Google Maps View of ${parkName}`}
-      width="400"
-      height="350"
+      width="100%"
+      height="100%"
       style={{border:0, borderRadius:'0.5rem', boxShadow: 'rgba(99, 99, 99, 0.3) 0px 2px 8px 0px'}}
       loading="lazy"
       referrerPolicy="no-referrer-when-downgrade"

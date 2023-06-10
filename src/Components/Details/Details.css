@@ -1,10 +1,13 @@
-.details-info {
-  padding: 2rem;
-  padding-top: 0;
+hr {
+  border-style: groove;
+  color: #fff3d5;
 }
 
 .banner-image {
   width: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .banner-name {
@@ -13,15 +16,56 @@
   padding: 0.5rem 1.5rem;
   border-radius: 2rem;
   position: relative;
-  left: 2rem;
+  left: 5rem;
   bottom: 6rem;
   z-index: 1;
-  color: white;
+  color: #fff3d5;
   background-color: rgba(0, 0, 0, .5);
+}
+
+.content {
+  margin: 0 auto;
+  margin-bottom: 4rem;
+  max-width: 90%;
+  border-radius: 1rem;
+  background-color: rgba(33, 77, 48, .2);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1.5rem 4rem;
+  font-size: large;
 }
 
 .details-map {
   display: flex;
   justify-content: center;
-  margin: 3rem;
+  margin: 1rem;
+  width: 500px;
+  height: 350px;
+}
+
+.details-info {
+  max-width: 60%;
+  margin: 0 2rem 1rem 1rem;
+}
+
+.description {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 1.5rem 8rem;
+  font-size: large;
+  text-align: center;
+}
+
+.popular,
+.primary {
+  text-decoration: underline;
+}
+
+.activities,
+.address {
+  padding-left: 1.5rem;
 }
