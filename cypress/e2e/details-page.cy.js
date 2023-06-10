@@ -1,8 +1,6 @@
 describe('template spec', () => {
-  let npsApiKey = Cypress.env('nps_api_key');
-
   beforeEach(() => {
-    // npsApiKey = Cypress.env('nps_api_key');
+    let npsApiKey = Cypress.env('nps_api_key');
 
     cy.intercept({
       pathname: '/api/v1/parks',
@@ -17,7 +15,7 @@ describe('template spec', () => {
     cy.visit('http://localhost:3000/')
   });
 
-  it('Can click a park name to take you to a details page about that park', () => {
+  it('Can click a park name to navigate to a details page about that park', () => {
     cy.get('.link-to-details').last().click()
     cy.url().should('eq', 'http://localhost:3000/park-details/arch')
     cy.get('.banner-image').should('have.attr', 'src', 'https://www.nps.gov/common/uploads/structured_data/473F5463-F0D2-261D-CEF5FCB39363590B.jpg')
@@ -31,26 +29,19 @@ describe('template spec', () => {
     cy.get('iframe').should('have.css', 'width', '600px')
   });
 
+  it('Displays a link to be taken to the NPS website', () => {
+    cy.visit('http://localhost:3000/park-details/arch')
+    cy.get('.link-to-nps').should('have.attr', 'href', 'https://www.nps.gov/arch/index.htm')
+  });
+
   it('Displays an embedded map with a link to Google Maps', () => {
     cy.visit('http://localhost:3000/park-details/arch')
     cy.get('iframe').should('have.attr', 'src', 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBHnR_gWiIkY0g7Cu2bh08YKjDnpa0YYGc&q=Arches National Park&maptype=satellite')
   });
 
-  it('Displays a link to be taken to the NPS website', () => {
-    // visit details page
-    // get link
-    // click
-    // assert new url
-  });
-
   it('Can navigate back to the homepage by clicking the header logo', () => {
-    // visit details page
-    // get header logo
-    // click
-    // assert new url
-  });
-
-  it('', () => {
-    
+    cy.visit('http://localhost:3000/park-details/arch')
+    cy.get('.logo-link').click()
+    cy.url().should('eq', 'http://localhost:3000/')
   });
 });
