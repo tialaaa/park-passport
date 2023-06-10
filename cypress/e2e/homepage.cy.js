@@ -1,16 +1,7 @@
 describe('Homepage user flows', () => {
-  let npsApiKey;
-
   beforeEach(() => {
-  // METHOD 1 - always works correctly
-    // cy.intercept("GET", `https://developer.nps.gov/api/v1/parks*`, {
-    //   statusCode: 200,
-    //   fixture: 'parks'
-    // })
-
-  // METHOD 2 - sometimes causes bugs ??
-    npsApiKey = Cypress.env('nps_api_key');
-
+    let npsApiKey = Cypress.env('nps_api_key');
+    
     cy.intercept({
       pathname: '/api/v1/parks',
       query: {
