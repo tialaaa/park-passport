@@ -1,14 +1,6 @@
 describe('template spec', () => {
-  let npsApiKey = Cypress.env('nps_api_key');
-
   it('Displays a message for server-side errors when network request is not successful', () => {
-    cy.intercept({
-      pathname: '/api/v1/parks',
-      query: {
-        limit: '469',
-        api_key: npsApiKey,
-      },
-    }, {
+    cy.intercept("GET", `https://developer.nps.gov/api/v1/parks*`, {
       statusCode: 500,
       body: {
         message: 'Internal Server Error'
@@ -21,14 +13,8 @@ describe('template spec', () => {
       .get('.error-message').should('have.text', 'We seem to be having technical issues. Please try again later.')
   });
 
-  it('Displays a different message for client-side errors when the URL doesn\' exist, and can navigate back to homepage using the Header logo', () => {
-    cy.intercept({
-      pathname: '/api/v1/parks',
-      query: {
-        limit: '469',
-        api_key: npsApiKey,
-      },
-    }, {
+  it('Displays a different message for client-side errors when the URL doesn\'t exist, and can navigate back to homepage using the Header logo', () => {
+    cy.intercept("GET", `https://developer.nps.gov/api/v1/parks*`, {
       statusCode: 200,
       fixture: 'parks'
     })
