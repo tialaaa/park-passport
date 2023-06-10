@@ -24,7 +24,7 @@ describe('Homepage user flows', () => {
   });
 
   it('Once fully loaded, displays a subheader message and grid of different parks', () => {
-    cy.get('.message-helper').should('include.text', 'Collect badges below')
+    cy.get('.message-helper').should('include.text', 'Find out by collecting badges')
     cy.get('.message-percent').should('have.text', 'You have visited 0% of the National Parks!')
     cy.get('.parks-container').children().should('have.length', 2)
     cy.get('.card').first().children().should('include.text', 'Acadia National Park').and('have.attr', 'href')
@@ -37,12 +37,12 @@ describe('Homepage user flows', () => {
         .should('have.attr', 'alt')
   });
 
-  it('Has greyed-out badges that, when clicked, update the \'% Visited\' stat and change the card\'s color', () => {
+  it('Each park card has a greyed-out badge that, when clicked, updates the \'% Visited\' stat and changes the card\'s color', () => {
     cy.get('.visited-badge').first().should('have.css', 'filter', 'grayscale(1)')
       .should('have.css', 'opacity', '0.75')
       .get('.card-image').first().should('not.have.css', 'filter', 'grayscale(1)')
       .get('.message-percent').should('have.text', 'You have visited 0% of the National Parks!')
-      cy.get('.header-percent').should('not.be.visible')
+    cy.get('.header-percent').should('not.be.visible')
     cy.get('.visited-badge').first().click()
     cy.get('.visited-badge').first().should('have.css', 'filter', 'none')
       .should('have.css', 'opacity', '1')
