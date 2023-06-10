@@ -30,13 +30,13 @@ hr {
   border-radius: 1rem;
   background-color: rgba(33, 77, 48, .2);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  font-size: large;
 }
 
 .details-container {
   display: flex;
   justify-content: space-evenly;
   padding: 1.5rem 4rem;
-  font-size: large;
 }
 
 .details-map {
@@ -48,7 +48,7 @@ hr {
 }
 
 .details-info {
-  max-width: 60%;
+  max-width: 50%;
   margin: 0 2rem 1rem 1rem;
 }
 
@@ -56,16 +56,94 @@ hr {
   max-width: 80%;
   margin: 0 auto;
   padding: 1.5rem 8rem;
-  font-size: large;
   text-align: center;
 }
 
-.popular,
-.primary {
-  text-decoration: underline;
+.activities,
+.address,
+.states {
+  padding-left: 1.5rem;
 }
 
-.activities,
-.address {
-  padding-left: 1.5rem;
+.nps-container {
+  display: flex;
+  align-items: center;
+}
+
+.nps-logo {
+  width: 3rem;
+  padding-right: 1rem;
+}
+
+@media screen and (max-width: 990px) {
+  .details-container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .details-info {
+    max-width: 85%;
+    margin: 0 0 1rem 0;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .description {
+    padding: 1.5rem 4rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .details-container {
+    padding: 1.5rem 2rem;
+  }
+
+  .details-info {
+    text-align: center;
+  }
+
+  .activities,
+  .address,
+  .states {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .banner-name {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: static;
+    background-color: #214d30;
+    text-align: center;
+  }
+
+  .description {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .details-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .details-map {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .details-map {
+    margin: 1rem 0.5rem;
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .details-map {
+    width: 300px;
+  }
 }
