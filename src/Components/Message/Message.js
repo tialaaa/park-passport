@@ -6,9 +6,9 @@ export const Message = ({ loadingState, percentVisited }) => {
   let displayedMessage;
   const loading = "Park information loading...";
 
-  const helper = <>How many U.S. National Parks have you explored so far?<br/><br/>
-  Collect badges below for the Parks you have visited.<br/>
-  To complete your passport, browse the additional resources to plan your future adventures.</>;
+  const helper = <>How many U.S. National Parks have you explored?<br/><br/>
+  Find out by collecting badges below for the Parks you have visited.<br/>
+  To complete your passport, browse the additional resources and plan your future adventures.</>;
 
   const percent = Math.ceil(percentVisited() * 100);
   const displayedPercent = <>You have visited {percent}% of the National Parks!</>;
